@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1220"><title>ویدیوگیر | دانلود ویدیو</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#131e30;--line:#26374e;--text:#eef5ff;--muted:#9aabc1;--mint:#48dfbd;--blue:#6d83ff}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 10% 0,#1b3450 0,transparent 40%),linear-gradient(145deg,#09111d,#0d1728 65%,#101b2b);color:var(--text);font:15px Tahoma,system-ui,sans-serif}
+.wrap{width:min(760px,100%);margin:auto;padding:22px 15px 100px}.top{display:flex;align-items:center;justify-content:space-between;margin:6px 0 34px}.brand{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:800}.logo{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(140deg,var(--mint),#388bc4);color:#06131d;font-size:21px}.tag{font-size:12px;color:var(--mint);border:1px solid #2b655f;padding:7px 10px;border-radius:30px}
+.hero{text-align:center;margin:0 auto 25px}.hero h1{font-size:clamp(27px,6vw,39px);margin:0 0 10px;letter-spacing:-1px}.hero p{color:var(--muted);line-height:1.9;margin:0 auto;max-width:530px}
+.card{background:linear-gradient(150deg,rgba(23,36,55,.97),rgba(16,27,43,.97));border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 18px 50px #0004;margin:15px 0}
+.label{display:block;color:#d5e2f3;font-size:13px;font-weight:700;margin:0 0 9px}.urlbox{display:flex;gap:8px;background:#0a1422;border:1px solid #30445d;border-radius:14px;padding:7px}.urlbox input{min-width:0;flex:1;border:0;outline:0;background:transparent;color:white;padding:9px;font:14px Tahoma,system-ui}.btn{border:0;border-radius:12px;padding:12px 16px;font:700 14px Tahoma;cursor:pointer}.paste{background:#24374e;color:#dcecff}.primary{width:100%;margin-top:12px;background:linear-gradient(110deg,#48dfbd,#55b8cf);color:#071a22;min-height:49px;font-size:15px}.primary:disabled{opacity:.5;cursor:not-allowed}.hint{color:var(--muted);font-size:12px;line-height:1.9;margin:12px 2px 0}.status{display:none;padding:12px 14px;border-radius:12px;margin-top:13px;background:#102d2c;border:1px solid #245c54;color:#b5f6e8;font-size:13px;line-height:1.8;overflow-wrap:anywhere}.status.show{display:block}.preview{display:none;margin-top:17px}.preview.show{display:block}.preview video{width:100%;max-height:420px;background:#05090f;border-radius:14px}.actions{display:flex;gap:9px;margin-top:12px}.actions a,.actions button{flex:1;text-align:center;text-decoration:none}.download{background:var(--mint);color:#071a22}.open{background:#293b53;color:#eaf3ff}.section-title{font-size:16px;margin:0 0 13px}.feature{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #26374e}.feature:last-child{border:0;padding-bottom:0}.ico{width:34px;height:34px;flex:0 0 34px;border-radius:11px;display:grid;place-items:center;background:#1d3b48;color:var(--mint)}.feature b{display:block;font-size:13px;margin:1px 0 5px}.feature small{display:block;color:var(--muted);font-size:12px;line-height:1.8}.history-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid #26374e;font-size:12px}.history-item:last-child{border:0}.history-item span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#c8d6e8}.history-item button{background:#26374e;color:#e8f2ff;padding:7px 10px;font-size:11px}.empty{color:var(--muted);font-size:12px}.foot{text-align:center;color:#71839a;font-size:11px;line-height:1.9;margin-top:22px}
+@media(max-width:480px){.wrap{padding:14px 11px 80px}.top{margin-bottom:27px}.card{padding:15px;border-radius:18px}.urlbox{flex-wrap:wrap}.urlbox input{flex-basis:70%}.paste{flex:1}.actions{flex-direction:column}}
+</style></head>
+<body><main class="wrap">
+<header class="top"><div class="brand"><span class="logo">↓</span><span>ویدیوگیر</span></div><span class="tag">رایگان · نسخه وب</span></header>
+<section class="hero"><h1>ویدیو رو ذخیره کن</h1><p>لینک مستقیم ویدیوی عمومی رو وارد کن، پیش‌نمایش بگیر و فایل رو روی گوشیت ذخیره کن.</p></section>
+<section class="card">
+<label class="label" for="url">لینک مستقیم ویدیو</label>
+<div class="urlbox"><input id="url" type="url" inputmode="url" placeholder="https://example.com/video.mp4" autocomplete="url"><button class="btn paste" id="paste">چسباندن</button></div>
+<button class="btn primary" id="check">بررسی لینک و نمایش ویدیو</button>
+<div class="status" id="status" role="status" aria-live="polite"></div>
+<div class="preview" id="preview"><video id="player" controls playsinline preload="metadata"></video><div class="actions"><a class="btn download" id="download" href="#" download>دانلود ویدیو</a><a class="btn open" id="open" href="#" target="_blank" rel="noopener">باز کردن لینک</a></div></div>
+<p class="hint">این نسخه برای لینک مستقیم فایل‌های عمومی مثل MP4 و WebM طراحی شده. لینک صفحهٔ پست شبکه‌های اجتماعی معمولاً لینک مستقیم فایل نیست.</p>
+</section>
+<section class="card"><h2 class="section-title">امکانات</h2>
+<div class="feature"><span class="ico">▶</span><div><b>پیش‌نمایش قبل از دانلود</b><small>قبل از ذخیره، مطمئن شو لینک به ویدیو می‌رسه.</small></div></div>
+<div class="feature"><span class="ico">↧</span><div><b>سازگار با موبایل</b><small>رابط کاربری سبک و مناسب صفحه‌نمایش گوشی.</small></div></div>
+<div class="feature"><span class="ico">◷</span><div><b>آخرین لینک‌ها</b><small>چند لینک اخیر فقط روی همین دستگاه نگهداری می‌شن.</small></div></div>
+</section>
+<section class="card"><h2 class="section-title">لینک‌های اخیر</h2><div id="history" class="empty">هنوز لینکی ثبت نشده.</div></section>
+<p class="foot">ویدیوگیر فقط برای فایل‌هایی است که اجازهٔ دانلودشان را داری. محتوای خصوصی، محدودشده یا دارای DRM را دور نمی‌زند.<br>فایل‌ها به سرور ما ارسال نمی‌شوند.</p>
+</main>
+<script>
+const $=id=>document.getElementById(id);const input=$('url'),status=$('status'),preview=$('preview'),player=$('player'),download=$('download'),openLink=$('open');
+function say(t){status.textContent=t;status.classList.add('show')}
+function valid(raw){let u;try{u=new URL(raw)}catch{return null}if(!['http:','https:'].includes(u.protocol))return null;return u}
+function saveHistory(url){let a=[];try{a=JSON.parse(localStorage.getItem('videogir-history')||'[]')}catch{}a=[url,...a.filter(x=>x!==url)].slice(0,5);try{localStorage.setItem('videogir-history',JSON.stringify(a))}catch{}renderHistory()}
+function renderHistory(){let a=[];try{a=JSON.parse(localStorage.getItem('videogir-history')||'[]')}catch{}const box=$('history');if(!a.length){box.className='empty';box.textContent='هنوز لینکی ثبت نشده.';return}box.className='';box.innerHTML='';a.forEach(url=>{const row=document.createElement('div');row.className='history-item';const s=document.createElement('span');s.textContent=url;const b=document.createElement('button');b.className='btn';b.textContent='استفاده';b.onclick=()=>{input.value=url;check()};row.append(s,b);box.append(row)})}
+async function check(){const u=valid(input.value.trim());if(!u){say('لطفاً یک آدرس معتبر با https یا http وارد کن.');preview.classList.remove('show');return}const url=u.href;openLink.href=url;download.href=url;download.setAttribute('download','video');player.src=url;preview.classList.add('show');say('لینک ثبت شد. اگر پیش‌نمایش پخش شد، می‌تونی دانلود رو بزنی. اگر خطای پخش یا دسترسی دیدی، سرور مقصد ممکنه دسترسی مرورگر رو محدود کرده باشه.');saveHistory(url);player.load()}
+$('check').addEventListener('click',check);$('paste').addEventListener('click',async()=>{try{input.value=await navigator.clipboard.readText();say('لینک از کلیپ‌بورد چسبانده شد.')}catch{input.focus();say('دسترسی چسباندن فعال نیست؛ لینک رو دستی وارد کن.')}});input.addEventListener('keydown',e=>{if(e.key==='Enter')check()});renderHistory();
+</script></body></html>
